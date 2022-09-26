@@ -16,9 +16,21 @@ if((mousePressed==true)&&((mouseX>xL-5)&&(mouseX<xL+50)&&(mouseY>yL-20)&&(mouseY
   if(val>0){
   fondo();
   jugador();
-  enemigoVolador2();
-  enemigoVolador();
-  enemigoTierra();
-  game_over();}
+  for(int i= 0; i<malos.length;i++){
+    malos[i].show();
+    malos[i].update();  
+    if (malos[i].colide()){
+        exit();
+    }  
+    if(malos[i].x < -50){
+      malos[i] = new enemy(int(random(0,2)));    
+     
+    }  
+  }
+  //enemigoVolador2();
+  //enemigoVolador();
+  //enemigoTierra();
+  //game_over();
+}
 
 }
